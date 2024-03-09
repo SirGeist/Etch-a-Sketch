@@ -1,0 +1,12 @@
+.grid-container.styled-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-cell {
+  /*6.25% for both width and padding gives us a grid like structure*/
+  width: 6.25%;
+  padding-bottom: 6.25%;
+  box-sizing: border-box;
+  border: 1px solid #000;
+}

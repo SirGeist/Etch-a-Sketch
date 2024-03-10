@@ -1,10 +1,16 @@
 function generateGrid(size) {
   // Main container
   const gridContainer = document.querySelectorAll(".grid-container");
-
   gridContainer.forEach((gridContainer) => {
     // Emptying the existing grid
     gridContainer.innerHTML = "";
+
+    // Set the number of grid columns based on the size
+    const numColumns = size;
+
+    // calculate the width of each grid cell based on the viewport size and grid
+    const cellWidth = 100 / numColumns;
+
     // Use a fragment to efficiently append all of the cells
     const fragment = document.createDocumentFragment();
 
@@ -12,10 +18,15 @@ function generateGrid(size) {
     for (let i = 0; i < size * size; i++) {
       const cell = document.createElement("div");
       cell.classList.add("grid-cell");
+      // Set the width of the grid cell dynamically
+      cell.style.width = `${cellWidth}%`;
 
       // Change grid cell background color when mouse hovers over it
       cell.addEventListener("mouseover", () => {
-        cell.style.backgroundColor = "blue";
+        // Changing the color on the background based on a randomly generated
+        // color
+        cell.style.backgroundColor =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
       });
       fragment.appendChild(cell);
     }
